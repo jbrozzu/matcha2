@@ -6,6 +6,9 @@
 	<div class="corpus">
             
                 <div class="form">
+
+                    {{ errors | json_encode }}
+
                     <form action="{{ path_for('auth.signup') }}" method="post" >
                         <label for="name"> Pseudo </label>
                         <input type="text" name="name" id="name" autofocus />

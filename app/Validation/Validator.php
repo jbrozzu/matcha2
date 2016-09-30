@@ -19,6 +19,9 @@
 					$this->errors[$field] = $exception->getMessages();
 				}
 			}
+
+			$_SESSION['errors'] = $this->errors;
+
 			return $this;
 		}
 
@@ -28,3 +31,5 @@
 		}
 			
 	}
+
+	// video 12/29 --> 7 min
