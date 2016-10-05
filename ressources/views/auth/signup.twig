@@ -7,18 +7,34 @@
             
                 <div class="form">
 
-                    {{ errors | json_encode }}
 
                     <form action="{{ path_for('auth.signup') }}" method="post" >
-                        <label for="name"> Pseudo </label>
-                        <input type="text" name="name" id="name" autofocus />
+                        <label for="name" > Pseudo </label>
+                        <input type="text" name="name" id="name" value="{{ old.name }}" autofocus />
                         <br />
+                        {% if errors.email %}
+                        <span class='error-form'>{{ errors.name | first }} </span>
+                        <br />
+                        {% endif %}
+
                         <label for="email"> E-mail </label>
-                        <input type="email" name="email" id="email" />
+                        <input type="text" name="email" id="email" value="{{ old.email }}" />
                         <br />
+                        {% if errors.email %}
+                        <span class='error-form'>{{ errors.email | first }} </span>
+                        <br />
+                        {% endif %}
+
+                        
                         <label for="password"> Mot de passe </label>
                         <input type="password" name="password" id="password" />
-                        <br /><br />
+                        <br />
+                        {% if errors.password %}
+                        <span class='error-form'>{{ errors.password | first }} </span>
+                        <br />
+                        {% endif %}
+
+                        <br />
                         <input type="submit" value="ENVOYER" />      
                     </form>
                 </div>
